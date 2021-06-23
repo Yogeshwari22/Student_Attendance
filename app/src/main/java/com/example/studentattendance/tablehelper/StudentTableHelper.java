@@ -33,7 +33,7 @@ public class StudentTableHelper {
     public List<Student> getAllStudent(Context context){
         SQLiteDatabase db = DatabaseHelper.getInstance(context).getMyReadableDatabase();
         List<Student> studentsList = new ArrayList<>();
-        String query = "SELECT * FROM "+tableStudent;
+        String query = "SELECT * FROM "+tableStudent + " ORDER BY "+columnRollNo;
         Cursor cursor = db.rawQuery(query, null);
         if(cursor.moveToFirst()){
             do{
@@ -45,6 +45,7 @@ public class StudentTableHelper {
                 studentsList.add(s);
             }while (cursor.moveToNext());
         }
+        cursor.close();
         return  studentsList;
     }
 
