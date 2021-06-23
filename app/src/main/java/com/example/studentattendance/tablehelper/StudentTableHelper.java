@@ -2,6 +2,7 @@ package com.example.studentattendance.tablehelper;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
+import android.text.Editable;
 
 import com.example.studentattendance.DatabaseHelper;
 import com.example.studentattendance.pojo.Student;
@@ -10,7 +11,7 @@ public class StudentTableHelper {
 
     public static String tableStudent = "student";
     public static  String columnRollNo = "rollNo";
-    public static  String columnName = "name";
+    public static Editable columnName = "name";
     public static  String columnStd = "std";
     public static  String columnDivision = "division";
     public static  String createTable = "CREATE TABLE " + tableStudent + "(" +

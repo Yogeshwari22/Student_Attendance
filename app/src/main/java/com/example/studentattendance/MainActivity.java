@@ -28,18 +28,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
         switch(v.getId()){
             case R.id.btnAddStudent :{
-                Intent intent =new Intent(MainActivity.this, AddStudent.class);
+                Intent intent =new Intent(MainActivity.this, AddStudentActivity.class);
                 startActivity(intent);
                 break;
             }
             case R.id.btnAttendanceSheet :{
-                Intent intent =new Intent(MainActivity.this, AttendanceSheet.class);
+                Intent intent =new Intent(MainActivity.this, AttendanceSheetActivity.class);
                 startActivity(intent);
                 break;
 
             }
             case R.id.btnTakeAttendance :{
-                Intent intent =new Intent(MainActivity.this, TakeAttendance.class);
+                Intent intent =new Intent(MainActivity.this, TakeAttendanceActivity.class);
                 startActivity(intent);
                 break;
             }
