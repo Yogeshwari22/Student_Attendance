@@ -6,14 +6,14 @@ import com.example.studentattendance.tablehelper.StudentTableHelper;
 
 public class Student {
     private String name;
-    private String rollNo;
+    private int rollNo;
     private String std;
     private String division;
 
     public Student() {
     }
 
-    public Student(String name, String rollNo, String std, String division) {
+    public Student( int rollNo,String name, String std, String division) {
         this.name = name;
         this.rollNo = rollNo;
         this.std = std;
@@ -37,11 +37,11 @@ public class Student {
         this.name = name;
     }
 
-    public String getRollNo() {
+    public int getRollNo() {
         return rollNo;
     }
 
-    public void setRollNo(String rollNo) {
+    public void setRollNo(int rollNo) {
         this.rollNo = rollNo;
     }
 
