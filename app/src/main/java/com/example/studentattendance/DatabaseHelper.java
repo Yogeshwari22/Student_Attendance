@@ -6,6 +6,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 import androidx.annotation.Nullable;
 
+import com.example.studentattendance.tablehelper.AttendanceTableHelper;
 import com.example.studentattendance.tablehelper.StudentTableHelper;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
@@ -27,6 +28,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(StudentTableHelper.createTable);
+        db.execSQL(AttendanceTableHelper.createTable);
     }
 
     @Override
