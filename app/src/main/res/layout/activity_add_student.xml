@@ -23,6 +23,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Enter Student Name"
+        android:inputType="textPersonName"
         android:layout_marginTop="70dp"
         />
     <EditText
@@ -30,6 +31,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Class"
+        android:inputType="textPersonName"
         android:layout_marginTop="20dp"
         />
     <EditText
@@ -37,6 +39,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Division"
+        android:inputType="textPersonName"
         android:layout_marginTop="20dp"
         />
     <EditText
@@ -44,6 +47,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Roll Number"
+
         android:inputType="number"
         android:autofillHints=""
         android:layout_marginTop="20dp"
