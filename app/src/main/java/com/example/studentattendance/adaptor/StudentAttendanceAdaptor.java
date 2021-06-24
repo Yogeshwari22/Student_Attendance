@@ -5,13 +5,16 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.ListView;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.studentattendance.R;
+import com.example.studentattendance.pojo.Attendance;
 import com.example.studentattendance.pojo.Student;
 
 import java.util.ArrayList;
@@ -19,9 +22,13 @@ import java.util.List;
 
 public class StudentAttendanceAdaptor extends RecyclerView.Adapter<StudentAttendanceAdaptor.ViewHolder> {
     public List<Student> studentList = new ArrayList<>();
+    public static List<Attendance> attendanceList = new ArrayList<>();
+     public String date;
 
-    public StudentAttendanceAdaptor(List<Student> studentList) {
+    public StudentAttendanceAdaptor(List<Student> studentList,String date) {
         this.studentList = studentList;
+        this.date = date;
+
     }
 
     @NonNull
@@ -38,6 +45,18 @@ public class StudentAttendanceAdaptor extends RecyclerView.Adapter<StudentAttend
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
        holder.rollNo.setText(String.valueOf(studentList.get(position).getRollNo()));
        holder.studentName.setText(studentList.get(position).getName());
+       int present = holder.checkbox.isChecked() ? 1 : 0 ;
+       Student s = studentList.get(position);
+       Attendance a = new Attendance(s.getName(),s.getRollNo(),s.getStd(),s.getDivision(),StudentAttendanceAdaptor.this.date, present);
+       attendanceList.add(a);
+       holder.checkbox.setOnCheckedChangeListener(
+               new CompoundButton.OnCheckedChangeListener() {
+                   @Override
+                   public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                       attendanceList.get(position).setPresent(isChecked ? 1 : 0 ) ;
+                   }
+               }
+       );
     }
 
 
