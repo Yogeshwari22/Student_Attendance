@@ -1,5 +1,6 @@
 package com.example.studentattendance.adaptor;
 
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,13 +19,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class AttendanceSheetAdapter extends RecyclerView.Adapter<AttendanceSheetAdapter.ViewHolder> {
-    public List<Student> studentListForDisplay = new ArrayList<>();
+    public List<Attendance> studentListForDisplay = new ArrayList<>();
     public static List<Attendance> attendanceListForDisplay = new ArrayList<>();
     public String date;
 
-    public AttendanceSheetAdapter(List<Student> studentListForDisplay, String date) {
+    public AttendanceSheetAdapter(List<Attendance> studentListForDisplay) {
         this.studentListForDisplay = studentListForDisplay;
-        this.date = date;
+
     }
 
     @NonNull
@@ -40,9 +41,17 @@ public class AttendanceSheetAdapter extends RecyclerView.Adapter<AttendanceSheet
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
 
-        holder.tVRollNoDisplay.setText(String.valueOf(studentListForDisplay.get(position).getRollNo()));
+       holder.tVRollNoDisplay.setText(String.valueOf(studentListForDisplay.get(position).getRollNo()));
         holder.tVNameDisplay.setText(studentListForDisplay.get(position).getName());
-        Student s = studentListForDisplay.get(position);
+
+        if(studentListForDisplay.get(position).getPresent() == 1 ){
+            holder.tVPOrAb.setText("Present");
+            holder.tVPOrAb.setTextColor(Color.parseColor("#008000"));
+        }
+        else{
+            holder.tVPOrAb.setText("Absent");
+            holder.tVPOrAb.setTextColor(Color.parseColor("#FF0000"));
+        }
 
     }
 

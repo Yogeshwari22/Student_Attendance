@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             }
             case R.id.btnAttendanceSheet :{
-                Intent intent =new Intent(MainActivity.this, AttendanceSheetActivity.class);
+                Intent intent =new Intent(MainActivity.this, DatePickerActivity.class);
                 startActivity(intent);
                 break;
 
