@@ -25,7 +25,7 @@ public class TakeAttendanceActivity extends AppCompatActivity {
     TextView selectDate;
     RecyclerView recyclerView;
     Button btnSubmit;
-    int day , month, yr;
+    int day1 , month1, yr1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,23 +39,26 @@ public class TakeAttendanceActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Calendar calendar = Calendar.getInstance();
-                day = calendar.get(Calendar.DAY_OF_MONTH);
-                month = calendar.get(Calendar.MONTH);
-                yr = calendar.get(Calendar.YEAR);
+               int  day = calendar.get(Calendar.DAY_OF_MONTH);
+                int month = calendar.get(Calendar.MONTH);
+               int  yr = calendar.get(Calendar.YEAR);
                 DatePickerDialog datePickerDialog = new DatePickerDialog(TakeAttendanceActivity.this, new
                         DatePickerDialog.OnDateSetListener() {
                             @Override
                             public void onDateSet(DatePicker view, int year, int month, int
                                     dayOfMonth){
+                                day1 = dayOfMonth ;
+                                month1 = month +1 ;
+                                yr1 = year;
 
                                 selectDate.setText(dayOfMonth + "/" + (month + 1) + "/" + year);
-
+                                getAllStudents();
                             }
                         },yr,month,day);
                 datePickerDialog.show();
-                System.out.println(selectDate);
 
-                getAllStudents();
+
+
 
             }
         });
@@ -80,8 +83,8 @@ public class TakeAttendanceActivity extends AppCompatActivity {
             System.out.println(studentList.get(i).getName());
 
         }
-        String date = day +"/" + month + "/" + yr ;
-
+        String date = day1 +"/" + month1 + "/" + yr1 ;
+        System.out.println(date);
         StudentAttendanceAdaptor adapter = new StudentAttendanceAdaptor(studentList,date );
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
 

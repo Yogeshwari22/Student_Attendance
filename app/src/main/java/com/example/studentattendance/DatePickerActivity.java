@@ -29,6 +29,7 @@ public class DatePickerActivity extends AppCompatActivity {
                 month = datePicker.getMonth() + 1;
                 year = datePicker.getYear();
                 date = day + "/" + month + "/" + year;
+                System.out.println("Date in date picker " + date);
                 Toast.makeText(DatePickerActivity.this,date,Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(DatePickerActivity.this, AttendanceSheetActivity.class);
                 intent.putExtra("date",date);

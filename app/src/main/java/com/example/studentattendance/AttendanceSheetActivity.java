@@ -38,7 +38,7 @@ public class AttendanceSheetActivity extends AppCompatActivity {
         List<Attendance>  attendanceListToDisplay;
 
         AttendanceTableHelper ath1 = new AttendanceTableHelper();
-        attendanceListToDisplay = ath1.getAllStudent(this);
+        attendanceListToDisplay = ath1.getAllStudent(this,date);
         AttendanceSheetAdapter adapter = new AttendanceSheetAdapter(attendanceListToDisplay);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
 
