@@ -37,10 +37,10 @@ public class AttendanceTableHelper {
         return suc>0;
     }
 
-    public List<Attendance> getAllStudent(Context context){
+    public List<Attendance> getAllStudent(Context context, String ofDate){
         SQLiteDatabase db = DatabaseHelper.getInstance(context).getMyReadableDatabase();
         List<Attendance> attendanceList = new ArrayList<>();
-        String query = "SELECT * FROM "+tableAttendance + " ORDER BY "+columnRollNo;
+        String query = "SELECT * FROM "+tableAttendance + " WHERE " + columnDate + " = '" + ofDate + "'" +" ORDER BY "+columnRollNo;
         Cursor cursor = db.rawQuery(query, null);
         if(cursor.moveToFirst()){
             do{
