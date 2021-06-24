@@ -20,9 +20,9 @@ public class AttendanceTableHelper {
     public static  String columnStd = "std";
     public static  String columnDivision = "division";
     public static  String columnPresent = "present";
-    public static  String createTable = "CREATE TABLE " + tableAttendance + "(" + columnId + "INTEGER PRIMARY KEY auto_increment, " + columnDate + "TEXT, "+
+    public static  String createTable = "CREATE TABLE " + tableAttendance + "(" + columnId + " INTEGER PRIMARY KEY AUTOINCREMENT, " + columnDate + " TEXT, "+
             columnRollNo + " INTEGER ," + columnName + " VARCHAR(50), "+columnStd+" VARCHAR(10), "+columnDivision+" VARCHAR(10), "
-            +columnPresent+"INTEGER DEFAULT 0)";
+            +columnPresent+" INTEGER DEFAULT 0)";
 
     public boolean takeAttendance(Context context, List<Attendance> attendanceList){
         SQLiteDatabase db  = DatabaseHelper.getInstance(context).getMyWritableDatabase();
